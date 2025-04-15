@@ -1,5 +1,5 @@
 {
-  "name": "bookmarklet",
+  "name": "jobcan-bookmarklet",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +7,6 @@
     "dev": "tsc && vite build --watch",
     "build": "tsc && vite build",
     "copy": "pnpx tsx ./script/copyBookmarklet.ts",
-    "build:copy": "pnpm build && pnpm copy",
     "demo": "pnpx tsx ./demo/demo.ts"
   },
   "devDependencies": {
@@ -17,5 +16,8 @@
     "jsdom": "^26.1.0",
     "typescript": "~5.7.2",
     "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "remeda": "^2.21.2"
   }
 }

@@ -1,9 +1,14 @@
-import { toDocument } from "./lib/web";
+import { getAttendanceHtml, workHours } from "./jobcan";
+import { copyToClipboard, today, toDocument } from "./lib";
 
 async function main() {
-  const getHtml = () => fetch("/").then((res) => res.text());
-  const document = toDocument(await getHtml());
-  console.log(document.title);
+  const hours = await workHours(today(), {
+    getHtml: getAttendanceHtml,
+    toDocument,
+  });
+
+  alert(`今日は約${hours}時間働きました。`);
+  copyToClipboard(String(hours));
 }
 
 main();

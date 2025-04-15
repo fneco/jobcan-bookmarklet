@@ -1,4 +1,4 @@
-# Bookmarklet with vite
+# ジョブカン勤怠管理 Bookmarklet
 
 ```sh
 pnpm install

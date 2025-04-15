@@ -4,7 +4,7 @@ export default {
   build: {
     lib: {
       entry: "src/main.ts",
-      name: "bookmarklet",
+      name: "jobcan",
       fileName: "bookmarklet",
       formats: ["iife"],
     },

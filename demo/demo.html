@@ -3,9 +3,155 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>This is title</title>
+    <title>Document</title>
   </head>
   <body>
-    <div>hello world</div>
+    <div class="table-responsive text-nowrap">
+      <table
+        class="table jbc-table text-center jbc-table-bordered jbc-table-hover"
+      >
+        <thead>
+          <tr class="jbc-table-header">
+            <th class="text-wrap" scope="col">日付</th>
+            <th class="text-wrap" scope="col">休日<br />区分</th>
+            <th class="text-wrap" scope="col">シフト時間</th>
+            <th class="text-wrap" scope="col">出勤時刻</th>
+            <th class="text-wrap" scope="col">退勤時刻</th>
+            <th class="text-wrap" scope="col">労働時間</th>
+            <th class="text-wrap" scope="col">シフト外労働時間</th>
+            <th class="text-wrap" scope="col">残業時間</th>
+            <th class="text-wrap" scope="col">深夜時間</th>
+            <th class="text-wrap" scope="col">休憩時間</th>
+            <th class="text-wrap" scope="col">勤怠状況</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a
+                class="jbc-text-reset"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                data-offset="264,0"
+                >04/01(火)</a
+              >
+              <div class="dropdown-menu" aria-labelledby="menu_order_img">
+                <a
+                  href="/employee/adit/modify?year=2025&amp;month=4&amp;day=1"
+                  class="dropdown-item py-2 menu-btn-new-tab"
+                  target="adit_202541"
+                  >打刻修正</a
+                ><a
+                  href="/employee/holiday/new?holiday_year=2025&amp;holiday_month=4&amp;holiday_day=1"
+                  class="dropdown-item py-2 menu-btn-new-tab"
+                  target="holiday_202541"
+                  >休暇申請</a
+                ><a
+                  href="/employee/over-work/new?over_work_year=2025&amp;over_work_month=4&amp;over_work_day=1"
+                  class="dropdown-item py-2 menu-btn-new-tab"
+                  target="over-work_202541"
+                  >残業申請</a
+                ><a
+                  href="/employee/holidayworking/new?holidayworking_year=2025&amp;holidayworking_month=4&amp;holidayworking_day=1"
+                  class="dropdown-item py-2 menu-btn-new-tab"
+                  target="holidayworking_202541"
+                  >休日出勤申請</a
+                >
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>09:58</td>
+            <td>19:53</td>
+            <td>08:55</td>
+            <td>08:55</td>
+            <td></td>
+            <td></td>
+            <td>01:00</td>
+            <td>
+              <div
+                data-toggle="tooltip"
+                data-placement="bottom"
+                data-html="false"
+                title=""
+                data-original-title=""
+              ></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a
+                class="jbc-text-reset"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                data-offset="264,0"
+                >04/02(水)</a
+              >
+              <div class="dropdown-menu" aria-labelledby="menu_order_img">
+                <a
+                  href="/employee/adit/modify?year=2025&amp;month=4&amp;day=2"
+                  class="dropdown-item py-2 menu-btn-new-tab"
+                  target="adit_202542"
+                  >打刻修正</a
+                ><a
+                  href="/employee/holiday/new?holiday_year=2025&amp;holiday_month=4&amp;holiday_day=2"
+                  class="dropdown-item py-2 menu-btn-new-tab"
+                  target="holiday_202542"
+                  >休暇申請</a
+                ><a
+                  href="/employee/over-work/new?over_work_year=2025&amp;over_work_month=4&amp;over_work_day=2"
+                  class="dropdown-item py-2 menu-btn-new-tab"
+                  target="over-work_202542"
+                  >残業申請</a
+                ><a
+                  href="/employee/holidayworking/new?holidayworking_year=2025&amp;holidayworking_month=4&amp;holidayworking_day=2"
+                  class="dropdown-item py-2 menu-btn-new-tab"
+                  target="holidayworking_202542"
+                  >休日出勤申請</a
+                >
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td>10:36</td>
+            <td>19:40</td>
+            <td>08:04</td>
+            <td>08:04</td>
+            <td></td>
+            <td></td>
+            <td>01:00</td>
+            <td>
+              <div
+                data-toggle="tooltip"
+                data-placement="bottom"
+                data-html="false"
+                title=""
+                data-original-title=""
+              ></div>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="jbc-table-footer">
+            <th scope="row" colspan="2">合計</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>87:58</td>
+            <td>87:58</td>
+            <td>00:00</td>
+            <td>00:41</td>
+            <td>10:01</td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
   </body>
 </html>
