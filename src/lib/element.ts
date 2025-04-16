@@ -1,5 +1,4 @@
 import { pipe } from "remeda";
-import { throwError } from "./util";
 
 export type Document = { querySelector: (selectors: string) => Element | null };
 export type ToDocument = (html: string) => Document;
@@ -10,13 +9,19 @@ export type EnvUtils = {
 
 const tableElement =
   (selectors: string) =>
-  (doc: Document): Element =>
-    doc.querySelector(selectors) ?? throwError("Table element not found");
+  (doc: Document): Element | null =>
+    doc.querySelector(selectors);
 
-export const getTableElement =
-  (tableSelector: string) =>
-  async ({ getHtml, toDocument }: EnvUtils) =>
-    pipe(await getHtml(), toDocument, tableElement(tableSelector));
+export const getDocument: (env: EnvUtils) => Promise<Document> = async ({
+  getHtml,
+  toDocument,
+}) => pipe(await getHtml(), toDocument);
+
+export const getTableElement: (
+  tableSelector: string
+) => (env: EnvUtils) => Promise<Element | null> =
+  (tableSelector) => async (env) =>
+    pipe(await getDocument(env), tableElement(tableSelector));
 
 export function parseTableHeads(table: Element): string[] {
   return Array.from(table.querySelectorAll("thead th")).reduce<string[]>(
@@ -28,16 +33,18 @@ export function parseTableHeads(table: Element): string[] {
   );
 }
 
-export function parseTableRows(table: Element): Record<string, string>[] {
+export function parseTableRows(
+  table: Element
+): Record<string, string | undefined>[] {
   const keys = parseTableHeads(table);
-  const rows: Record<string, string>[] = [];
+  const rows: Record<string, string | undefined>[] = [];
 
   table.querySelectorAll("tbody tr").forEach((tr) => {
-    const row: Record<string, string> = {};
+    const row: Record<string, string | undefined> = {};
 
     tr.querySelectorAll("td").forEach((td, index) => {
       const key = keys[index] || `Column${index + 1}`;
-      row[key] = td.textContent?.trim() || "";
+      row[key] = td.textContent?.trim();
     });
 
     rows.push(row);

@@ -1,5 +1,5 @@
 import { piped } from "remeda";
-import { throwError } from "./util";
+import { throughNil } from "./util";
 
 export const now = (): Date => new Date();
 export const today = now;
@@ -12,10 +12,10 @@ export function toMMSlashDD(now: Date): string {
   return `${month}/${day}`;
 }
 
-function extractHoursAndMinutes(time: string): [number, number] {
+function extractHoursAndMinutes(time: string): [number, number] | null {
   const [hours, minutes] = time.split(":").map((part) => parseInt(part, 10));
   if (isNaN(hours) || isNaN(minutes)) {
-    throwError("Invalid time format");
+    return null;
   }
   return [hours, minutes];
 }
@@ -23,4 +23,7 @@ function extractHoursAndMinutes(time: string): [number, number] {
 export const getAdjustedHours = ([hours, minutes]: [number, number]): number =>
   minutes <= 30 ? hours : hours + 1;
 
-export const aboutHours = piped(extractHoursAndMinutes, getAdjustedHours);
+export const aboutHours = piped(
+  extractHoursAndMinutes,
+  throughNil(getAdjustedHours)
+);
